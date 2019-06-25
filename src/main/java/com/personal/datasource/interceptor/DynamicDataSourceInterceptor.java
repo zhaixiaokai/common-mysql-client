@@ -8,14 +8,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 
 /**
- *
- * ClassName: DynamicDataSourceInterceptor <br/>
- * Function: 数据源动态切换拦截器. <br/>
- * date: 2017年3月15日 下午10:28:17 <br/>
- *
- * @author JohnFNash
- * @version
- * @since JDK 1.6
+ * 多数据源拦截
  */
 public class DynamicDataSourceInterceptor {
 
@@ -26,6 +19,7 @@ public class DynamicDataSourceInterceptor {
      * @throws Exception
      */
     public void intercept(JoinPoint point) throws Exception {
+        System.out.println("被拦截了");
         Class<?> target = point.getTarget().getClass();
         MethodSignature signature = (MethodSignature) point.getSignature();
         resolveDataSource(target, signature.getMethod());
